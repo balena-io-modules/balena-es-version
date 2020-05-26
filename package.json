@@ -1,0 +1,38 @@
+{
+  "name": "@balena/es-version",
+  "version": "0.0.0",
+  "description": "This module provides the ability to specify the default es version to include for balena modules.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:balena-io-modules/balena-es-version.git"
+  },
+  "author": "Pagan Gazzard <page@balena.io>",
+  "scripts": {
+    "lint": "balena-lint --typescript src",
+    "lint-fix": "balena-lint --typescript --fix src",
+    "test": "npm run build",
+    "posttest": "npm run lint",
+    "build": "tsc",
+    "prepack": "npm run build"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@balena/lint": "^5.1.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "typescript": "^3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "balena-lint --typescript --fix"
+    ]
+  }
+}
