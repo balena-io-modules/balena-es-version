@@ -1,0 +1,48 @@
+{
+  "name": "@balena/es-version",
+  "version": "0.0.0",
+  "description": "This module provides the ability to specify the default es version to include for balena modules.",
+  "browser": "build/index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:balena-io-modules/balena-es-version.git"
+  },
+  "author": "Pagan Gazzard <page@balena.io>",
+  "scripts": {
+    "lint": "balena-lint --typescript src test",
+    "lint-fix": "balena-lint --typescript --fix src test",
+    "pretest": "npm run build && npx tsc --noEmit --project tsconfig.test.json",
+    "test": "mocha --require ts-node/register/transpile-only test/*.ts",
+    "posttest": "npm run lint",
+    "build": "tsc",
+    "prepack": "npm run build"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@balena/lint": "^5.1.0",
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "mocha": "^7.2.0",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "balena-lint --typescript --fix"
+    ]
+  }
+}
