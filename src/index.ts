@@ -15,7 +15,7 @@ export type ValidVersion = keyof typeof validVersions;
 
 let desiredVersionIndex = 0;
 
-export const set = (version: ValidVersion) => {
+export const set = (version: ValidVersion): void => {
 	const versionIndex = validVersions[version];
 	if (versionIndex == null) {
 		throw new Error('Invalid es version to set: ' + version);
@@ -23,10 +23,10 @@ export const set = (version: ValidVersion) => {
 	desiredVersionIndex = versionIndex;
 };
 
-export const get = (supportedVersions?: ValidVersion[]) => {
+export const get = (supportedVersions?: ValidVersion[]): ValidVersion => {
 	if (supportedVersions == null) {
 		// If no supported version array is passed just return the desired version
-		return validVersions[desiredVersionIndex];
+		return validVersions[desiredVersionIndex] as ValidVersion;
 	}
 
 	// Otherwise check for the closest matching supported version and return that, priority is:
@@ -40,7 +40,7 @@ export const get = (supportedVersions?: ValidVersion[]) => {
 		const supportedVersionIndex = validVersions[supportedVersion];
 		if (supportedVersionIndex === desiredVersionIndex) {
 			// 1st priority: exact match
-			return validVersions[desiredVersionIndex];
+			return validVersions[desiredVersionIndex] as ValidVersion;
 		}
 		if (supportedVersionIndex !== -1) {
 			// Only include versions we know about
@@ -65,11 +65,11 @@ export const get = (supportedVersions?: ValidVersion[]) => {
 	}
 	if (closestVersionUnder != null) {
 		// 2nd priority: closest match under
-		return closestVersionUnder;
+		return validVersions[closestVersionUnder] as ValidVersion;
 	}
 	if (closestVersionOver != null) {
 		// 3rd priority: closest match over
-		return closestVersionOver;
+		return validVersions[closestVersionOver] as ValidVersion;
 	}
 	// 4th priority: error
 	throw new Error(
