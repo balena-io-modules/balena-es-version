@@ -38,7 +38,7 @@ export const get = (supportedVersions?: ValidVersion[]): ValidVersion => {
 	// Otherwise check for the closest matching supported version and return that, priority is:
 	// 1st: exact match
 	// 2nd: closest match under
-	// 3rd: closest match over
+	// 3rd: lowest supported version
 	let closestVersionUnder: number | undefined;
 	let closestVersionOver: number | undefined;
 	for (const supportedVersion of supportedVersions) {
@@ -72,7 +72,7 @@ export const get = (supportedVersions?: ValidVersion[]): ValidVersion => {
 		return validVersions[closestVersionUnder] as ValidVersion;
 	}
 	if (closestVersionOver != null) {
-		// 3rd priority: closest match over
+		// 3rd priority: lowest supported version
 		return validVersions[closestVersionOver] as ValidVersion;
 	}
 	// We shouldn't be able to reach here but we check the case for typescript

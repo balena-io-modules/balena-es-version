@@ -9,7 +9,7 @@ it('should return the desired version if listed', () => {
 	expect(balenaEsVersion.get(['es2018', 'es2016', 'es3'])).to.equal('es3');
 });
 
-it('should default to the closest version above if there is none below/matching the desired', () => {
+it('should default to the lowest supported version if there is none below/matching the desired', () => {
 	expect(balenaEsVersion.get(['es2018', 'es2016', 'es2015'])).to.equal(
 		'es2015',
 	);

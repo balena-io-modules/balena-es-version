@@ -27,7 +27,7 @@ require('@balena/es-version').set('es5');
 and then the closest matching version will be used by any module that supports choosing the target version, with the priority being:
 1. exact match
 2. closest match under the desired version
-3. closest match over the desired version
+3. lowest supported version
 
 ## Usage as a module provider
 
