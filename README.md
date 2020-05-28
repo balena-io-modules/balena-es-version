@@ -21,3 +21,6 @@ and then the closest matching version will be used by any module that supports c
 2. closest match under the desired version
 3. closest match over the desired version
 4. error
+
+Note: You should always use a `^` version specifier and make sure to dedupe the module so that the desired version is correctly set for every usage,
+it is also recommended to add a "browser" entry to a fixed version to your package.json in order to support browser bundlers with default config.
