@@ -1,4 +1,5 @@
-const validVersions = [
+// These must be ordered correctly
+enum validVersions {
 	'es3',
 	'es5',
 	'es2015',
@@ -8,15 +9,15 @@ const validVersions = [
 	'es2019',
 	'es2020',
 	'esnext',
-] as const;
+}
 
-export type ValidVersion = typeof validVersions[number];
+export type ValidVersion = keyof typeof validVersions;
 
 let desiredVersionIndex = 0;
 
 export const set = (version: ValidVersion) => {
-	const versionIndex = validVersions.indexOf(version);
-	if (versionIndex === -1) {
+	const versionIndex = validVersions[version];
+	if (versionIndex == null) {
 		throw new Error('Invalid es version to set: ' + version);
 	}
 	desiredVersionIndex = versionIndex;
@@ -36,7 +37,7 @@ export const get = (supportedVersions?: ValidVersion[]) => {
 	let closestVersionUnder: number | undefined;
 	let closestVersionOver: number | undefined;
 	for (const supportedVersion of supportedVersions) {
-		const supportedVersionIndex = validVersions.indexOf(supportedVersion);
+		const supportedVersionIndex = validVersions[supportedVersion];
 		if (supportedVersionIndex === desiredVersionIndex) {
 			// 1st priority: exact match
 			return validVersions[desiredVersionIndex];
