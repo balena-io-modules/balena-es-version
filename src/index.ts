@@ -29,49 +29,53 @@ export const get = (supportedVersions?: ValidVersion[]): ValidVersion => {
 		return validVersions[desiredVersionIndex] as ValidVersion;
 	}
 
+	if (supportedVersions.length === 0) {
+		throw new Error(
+			'Empty array of supported versions passed to @balena/es-version get',
+		);
+	}
+
 	// Otherwise check for the closest matching supported version and return that, priority is:
 	// 1st: exact match
 	// 2nd: closest match under
 	// 3rd: closest match over
-	// 4th: error
 	let closestVersionUnder: number | undefined;
 	let closestVersionOver: number | undefined;
 	for (const supportedVersion of supportedVersions) {
 		const supportedVersionIndex = validVersions[supportedVersion];
-		if (supportedVersionIndex === desiredVersionIndex) {
-			// 1st priority: exact match
-			return validVersions[desiredVersionIndex] as ValidVersion;
+		if (supportedVersionIndex == null) {
+			// Throw if there's an invalid version
+			throw new Error(
+				'Invalid version for @balena/es-version get: ' + supportedVersion,
+			);
 		}
-		if (supportedVersionIndex !== -1) {
-			// Only include versions we know about
-			if (supportedVersionIndex < desiredVersionIndex) {
-				if (
-					closestVersionUnder == null ||
-					supportedVersionIndex > closestVersionUnder
-				) {
-					// If the version is under the desired version but closer than previous then we update to use it
-					closestVersionUnder = supportedVersionIndex;
-				}
-			} else {
-				if (
-					closestVersionOver == null ||
-					supportedVersionIndex < closestVersionOver
-				) {
-					// If the version is over the desired version but closer than previous then we update to use it
-					closestVersionOver = supportedVersionIndex;
-				}
+		if (supportedVersionIndex <= desiredVersionIndex) {
+			if (
+				closestVersionUnder == null ||
+				supportedVersionIndex > closestVersionUnder
+			) {
+				// If the version is under or equal to the desired version and closer than previous then we update to use it
+				closestVersionUnder = supportedVersionIndex;
+			}
+		} else {
+			if (
+				closestVersionOver == null ||
+				supportedVersionIndex < closestVersionOver
+			) {
+				// If the version is over the desired version but closer than previous then we update to use it
+				closestVersionOver = supportedVersionIndex;
 			}
 		}
 	}
 	if (closestVersionUnder != null) {
-		// 2nd priority: closest match under
+		// 1st/2nd priority: exact match or the closest match under
 		return validVersions[closestVersionUnder] as ValidVersion;
 	}
 	if (closestVersionOver != null) {
 		// 3rd priority: closest match over
 		return validVersions[closestVersionOver] as ValidVersion;
 	}
-	// 4th priority: error
+	// We shouldn't be able to reach here but we check the case for typescript
 	throw new Error(
 		'No supported versions for @balena/es-version: ' + supportedVersions.join(),
 	);
