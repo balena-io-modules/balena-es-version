@@ -1,6 +1,6 @@
 {
   "name": "@balena/es-version",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This module provides the ability to specify the default es version to include for balena modules.",
   "browser": "build/index.js",
   "main": "build/index.js",
@@ -43,5 +43,8 @@
     "*.ts": [
       "balena-lint --fix"
     ]
+  },
+  "versionist": {
+    "publishedAt": "2021-11-01T13:41:06.450Z"
   }
 }
