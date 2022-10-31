@@ -1,0 +1,55 @@
+- commits:
+    - subject: Switch from balenaCI to flowzone
+      hash: fa3275fbb963e1d6708a20bb9e9ff3de3aae78e7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+    - subject: Add es2022 to the valid versions list
+      hash: 41084546a77413440809323f3a2fc07180fcb03a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 1.0.2
+  title: ""
+  date: 2022-10-31T13:30:17.661Z
+- version: 1.0.1
+  date: 2021-11-01T13:44:12Z
+  commits:
+    - hash: 381bfd18b2fc2149902fd8dbe43d854a97d13d19
+      author: Pagan Gazzard
+      subject: Update dependencies
+      body: null
+    - hash: 1d48899dd7a111856471d4c482c6dfe0e72abcad
+      author: Pagan Gazzard
+      footers:
+        change-type: patch
+      subject: Add es2021 to the valid versions list
+      body: null
+- version: 1.0.0
+- date: 2020-05-29T12:51:11Z
+- commits:
+    - hash: 6c3550723e8933d6d9ae09c9b91c36d2125812f9
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - subject: Update dev deps
+- commits:
+    - body: null
+- commits:
+    - hash: def8c848086f8830720bbf29eb839acde1dbaa2b
+- commits:
+    - author: Pagan Gazzard
+- commits:
+    - footers:
+        change-type: major
+- commits:
+    - subject: Initial version
+- commits:
+    - body: null
