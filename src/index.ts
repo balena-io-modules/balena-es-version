@@ -9,6 +9,7 @@ enum validVersions {
 	'es2019',
 	'es2020',
 	'es2021',
+	'es2022',
 	'esnext',
 }
 
