@@ -9,6 +9,8 @@ This module allows specifying a target es version for other modules to require, 
 * es2018
 * es2019
 * es2020
+* es2021
+* es2022
 * esnext
 
 ## Usage as a client
