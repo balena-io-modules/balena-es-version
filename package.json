@@ -14,8 +14,8 @@
   },
   "author": "Pagan Gazzard <page@balena.io>",
   "scripts": {
-    "lint": "balena-lint src test",
-    "lint-fix": "balena-lint --fix src test",
+    "lint": "balena-lint -t tsconfig.test.json src test",
+    "lint-fix": "balena-lint -t tsconfig.test.json --fix src test",
     "pretest": "npm run build && npx tsc --noEmit --project tsconfig.test.json",
     "test": "mocha --require ts-node/register/transpile-only test/*.ts",
     "posttest": "npm run lint",
@@ -24,15 +24,15 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@balena/lint": "^6.2.0",
-    "@types/chai": "^4.3.3",
-    "@types/mocha": "^9.1.1",
-    "chai": "^4.3.6",
+    "@balena/lint": "^7.1.1",
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.8",
     "husky": "^4.3.8",
-    "lint-staged": "^11.2.6",
-    "mocha": "^9.2.2",
+    "lint-staged": "^14.0.1",
+    "mocha": "^10.2.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "typescript": "^5.2.2"
   },
   "husky": {
     "hooks": {
@@ -41,7 +41,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "balena-lint --fix"
+      "balena-lint --fix -t tsconfig.test.json"
     ]
   },
   "versionist": {

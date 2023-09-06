@@ -5,6 +5,7 @@
 		"noEmit": true
 	},
 	"include": [
+		"src/*",
 		"test/*"
 	]
 }
