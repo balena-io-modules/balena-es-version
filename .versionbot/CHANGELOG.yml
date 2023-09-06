@@ -1,4 +1,22 @@
 - commits:
+    - subject: Update target to es5 as typescript is deprecating/removing es3
+      hash: db4a7d2af00194a422431a73e3d57c2f5bd5382e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+    - subject: Add es2023 to the valid versions list
+      hash: 6a9c4e4a01e33f1370b887e45f7d916ee0bb4c6a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Pagan Gazzard
+  version: 1.0.3
+  title: ""
+  date: 2023-09-06T15:19:20.683Z
+- commits:
     - subject: Switch from balenaCI to flowzone
       hash: fa3275fbb963e1d6708a20bb9e9ff3de3aae78e7
       body: ""
