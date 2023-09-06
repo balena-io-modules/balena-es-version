@@ -17,14 +17,14 @@ it('should default to the lowest supported version if there is none below/matchi
 
 it('should fail to get an invalid version', () => {
 	expect(() => {
-		// @ts-expect-error
+		// @ts-expect-error we're testing invalid input
 		balenaEsVersion.get('invalid');
 	}).to.throw();
 });
 
 it('should fail to set an invalid version', () => {
 	expect(() => {
-		// @ts-expect-error
+		// @ts-expect-error we're testing invalid input
 		balenaEsVersion.set('invalid');
 	}).to.throw();
 	expect(balenaEsVersion.get()).to.equal('es3');
