@@ -1,6 +1,6 @@
 {
   "name": "@balena/es-version",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This module provides the ability to specify the default es version to include for balena modules.",
   "browser": "build/index.js",
   "main": "build/index.js",
@@ -45,6 +45,6 @@
     ]
   },
   "versionist": {
-    "publishedAt": "2023-09-06T15:19:20.754Z"
+    "publishedAt": "2026-02-19T01:53:34.660Z"
   }
 }

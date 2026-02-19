@@ -1,4 +1,17 @@
 - commits:
+    - subject: "Add id-token: write permission for NPM OIDC publishing"
+      hash: c6d7520512a1f915297e8208d53aa4905f690126
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 1.0.4
+  title: ""
+  date: 2026-02-19T01:53:34.623Z
+- commits:
     - subject: Update target to es5 as typescript is deprecating/removing es3
       hash: db4a7d2af00194a422431a73e3d57c2f5bd5382e
       body: ""
